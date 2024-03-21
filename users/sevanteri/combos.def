@@ -1,0 +1,169 @@
+// vim:ft=c
+// right hand top row {{{
+COMB(C_ARING,      FI_ARNG,        MY_H,  MY_U)
+COMB(C_ACUT,       FI_ACUT,        MY_I,  MY_L)
+
+COMB(C_IO_TAB,      KC_TAB,        MY_I,  MY_O)
+//}}}
+// right hand home row {{{
+
+COMB(C_LESSTHAN,     LALT_LABK,  MY_H,  MY_J)
+COMB(C_GREATERTHAN,  FI_RABK,  MY_H,  MY_K)
+COMB(C_SLASH,      LCTL_SLASH,     MY_J,     MY_K)
+COMB(C_QUOT,       LGUI_QUOT,      MY_K,     MY_L)
+COMB(C_EQUALS,   FI_EQL,  MY_L,  MY_OE)
+
+COMB(C_PLUS2,      FI_PLUS,        MY_THR2,  MY_L)
+COMB(C_QUESTION,   LSFT(FI_PLUS),  MY_THR2,  MY_OE)
+COMB(C_BACKSLASH,  RALT(FI_PLUS),  MY_THR2,  MY_J,  MY_K)
+COMB(C_ASTERISK,  LSFT(FI_QUOT),   MY_K,     MY_L, MY_THR2)
+
+COMB(C_PARENRIGHT,        FI_RPRN,  MY_M,  MY_DOT)
+COMB(C_CURLYBRACERIGHT,   FI_RCBR,  MY_J,  MY_L)
+COMB(C_PARENRIGHT_OLD,    KC_NO,    MY_J,  MY_K,  MY_L)
+
+//}}}
+// right hand bottom row {{{
+
+COMB(C_AMP,          FI_AMPR,  MY_N,     MY_M)
+COMB(C_SEMICOLON,    FI_SCLN,  MY_M,     MY_COMM)
+COMB(C_DOUBLECOLON,  FI_COLN,  MY_COMM,  MY_DOT)
+COMB(C_UNDERSCORE,   FI_UNDS,  MY_DOT,   MY_MINS)
+
+SUBS(C_DOTDOTSLASH,  "../",    MY_THR2,  MY_DOT)
+
+//}}}
+
+// left hand top row {{{
+COMB(C_WE_TAB,  KC_TAB,  MY_E,  MY_W)
+
+SUBS(C_TILDE,   "~",   MY_R, MY_T)
+
+//}}}
+// left hand home row {{{
+COMB(C_EXCLAMATIONP,  FI_EXLM,  MY_A,  MY_S)
+COMB(C_DQUOTES,       FI_DQUO,  MY_S,  MY_D)
+COMB(C_HASH,          FUNC_HASH,  MY_D,  MY_F)
+COMB(C_PERCENTG,      LSFT(KC_5),  MY_F,  MY_G)
+
+COMB(C_PARENLEFT,        FI_LPRN,  MY_X,  MY_V)
+COMB(C_CURLYBRACELEFT,   FI_LCBR,  MY_S,  MY_F)
+COMB(C_PARENLEFT_OLD,    KC_NO,    MY_F,  MY_D,  MY_S)
+
+// thumbs
+COMB(C_THUMB_CTL_SFT,    LCTL(KC_LSFT),   MY_THL1, MY_S)
+COMB(C_THUMB_ALT_SFT,    LALT(KC_LSFT),   MY_THL2, MY_S)
+COMB(C_THUMB_ALT_CTL,    LALT(KC_LCTL),   MY_THL2, MY_A)
+COMB(C_THUMB_GUI_CTL,    LGUI(KC_LCTL),   MY_THL3, MY_A)
+COMB(C_THUMB_GUI_SFT,    LGUI(KC_LSFT),   MY_THL3, MY_S)
+COMB(C_THUMB_GUI_ALT,    LGUI(KC_LALT),   MY_THL3, MY_Z)
+
+//}}}
+// left hand bottow row {{{
+COMB(C_PIPE,     RALT(FI_LABK),  MY_X,     MY_Z)
+COMB(C_AT,       RALT(KC_2),     MY_X,     MY_C)
+COMB(C_DOLLAR,   RALT(KC_4),     MY_C,     MY_V)
+COMB(C_MEH,      KC_MEH,         MY_V,     MY_B)
+
+//}}}
+
+// both hands {{{
+COMB(C_SLEEP,  KC_SLEP,  MY_Q,     MY_P)
+/* COMB(C_WAKE,   KC_WAKE,  MY_W,     MY_O) */
+
+COMB(C_RESET,QK_BOOT,    MY_V, MY_B, MY_N, MY_M)
+COMB(C_LEFT_RESET,QK_BOOT,  MY_Q, MY_Z, MY_B, MY_T)
+COMB(C_RIGHT_RESET,QK_BOOT,  MY_Y, MY_N, MY_P, MY_MINS)
+
+COMB(C_SQUAREBRACEBOTH,  MY_SQUAREBRACEBOTH,  MY_X,  MY_V,  MY_M,  MY_DOT)
+COMB(C_CURLYBRACEBOTH,   MY_CURLYBRACEBOTH,   MY_S,  MY_F,  MY_J,  MY_L)
+COMB(C_PARENSBOTH,       MY_PARENSBOTH,       MY_S,  MY_D,  MY_F,  MY_J,  MY_K,  MY_L)
+
+//}}}
+
+// string combos, double handed: thumb2 plus letter from other hand {{{
+
+SUBS(C_GMAIL,  "pete.sevander@gmail.com",  MY_THR2,  MY_G)
+
+/* SUBS(C_OULD,  "ould",  MY_U,  MY_O) */
+SUBS(C_IAPO,  "I'",    MY_THR2, MY_I)
+
+// python
+
+SUBS(C_def,     "def ):" SLEFT SLEFT,  MY_THR2,  MY_D)
+SUBS(C_dunder,  "____" SLEFT SLEFT,           MY_THL2,  MY_MINS)
+
+// }}}
+
+// randoms {{{
+COMB(C_MUTE,   KC_MUTE,  MY_QUOT,  MY_AE)
+
+COMB(C_MOUS3,   KC_BTN3,   KC_BTN1, KC_BTN2)
+
+COMB(C_WORDCAPS, WORDCAPS,   MY_Q, MY_W)
+
+
+// alt + number for browser tabs and tmux {{{
+COMB(C_ALTN1,            LALT(KC_1),    MY_TAB,  MY_Q)
+COMB(C_ALTN2,            LALT(KC_2),    MY_TAB,  MY_W)
+COMB(C_ALTN3,            LALT(KC_3),    MY_TAB,  MY_E)
+COMB(C_ALTN4,            LALT(KC_4),    MY_TAB,  MY_R)
+COMB(C_ALTN5,            LALT(KC_5),    MY_TAB,  MY_T)
+COMB(C_ALTN6,            LALT(KC_6),    MY_QUOT, MY_Y)
+COMB(C_ALTN7,            LALT(KC_7),    MY_QUOT, MY_U)
+COMB(C_ALTN8,            LALT(KC_8),    MY_QUOT, MY_I)
+COMB(C_ALTN9,            LALT(KC_9),    MY_QUOT, MY_O)
+COMB(C_ALTN0,            LALT(KC_0),    MY_QUOT, MY_P)
+//}}}
+//}}}
+
+// Combos for GAME layer {{{
+COMB(C_GAME_ENTER, KC_ENT,  MY_THL1, MY_THUL1)
+RENA(C_GAME_START, C_GAME_ENTER)
+/* COMB(C_GAME_ENTER, KC_ENT,  MY_THL1, MY_THUL1) */
+
+COMB(C_GAME_Z, FI_Z, MY_S, MY_X)
+COMB(C_GAME_X, FI_X, MY_D, MY_C)
+COMB(C_GAME_C, FI_C, MY_F, MY_V)
+
+
+RENA(C_GAME_END, C_GAME_C)
+// }}}
+
+// vertical combos {{{
+
+// right hand
+COMB(C_CTRLSIX,   LCTL(KC_6),     MY_H,  MY_Y)
+RENA(C_VERTICAL_START, C_CTRLSIX)
+
+COMB(C_NEXTTAB,   CTRLTAB,        MY_K, MY_COMM)
+COMB(C_PREVTAB,   CSFTTAB,        MY_K, MY_I)
+COMB(C_WBAK,      KC_WBAK,        MY_U, MY_J)
+COMB(C_WFWD,      KC_WFWD,        MY_O, MY_L)
+
+COMB(C_BSPC,    KC_BSPC,     MY_N, MY_H)
+
+COMB(C_SQUAREBRACERIGHT,  FI_RBRC,  MY_M,  MY_J)
+
+// left hand
+// kyria left hand thumb
+#ifdef KEYBOARD_splitkb_kyria
+SUBS(C_CODEBLK,  "`",        MY_THL2,  MY_THUL2)
+COMB(C_CBSPC,    A(KC_BSPC),  MY_THL1,  MY_THUL1)
+#elif defined(KEYBOARD_gboards_gergoplex)
+COMB(C_AE,     FI_ADIA,       MY_OE, MY_P)
+COMB(C_PLEX_ESC, CTRLESC,      MY_Z, MY_A)
+SUBS(C_CODEBLK,  "`",        MY_THL2,  MY_B)
+#endif
+
+COMB(C_MSBTN1, KC_BTN1, MY_F, MY_R)
+COMB(C_MSBTN2, KC_BTN2, MY_E, MY_D)
+COMB(C_MSBTN3, KC_BTN3, MY_W, MY_S)
+
+COMB(C_SQUAREBRACELEFT,  FI_LBRC,  MY_V,  MY_F)
+
+COMB(C_DIAERESIS,  FI_DIAE,  MY_G,  MY_T)
+COMB(C_SECT,       FI_SECT,  MY_A,  MY_Q)
+COMB(C_DEL,    KC_DEL,     MY_B, MY_G)
+RENA(C_VERTICAL_END, C_DEL)
+// }}}
