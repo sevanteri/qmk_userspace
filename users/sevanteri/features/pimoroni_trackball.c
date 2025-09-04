@@ -108,5 +108,5 @@ void trackball_set_hsv(uint8_t hue, uint8_t sat, uint8_t brightness) {
     rgb.g -= white;
     rgb.b -= white;
 
-    trackball_set_rgbw(rgb.r, rgb.g, rgb.b, white);
+    pimoroni_trackball_set_rgbw(rgb.r, rgb.g, rgb.b, white);
 }

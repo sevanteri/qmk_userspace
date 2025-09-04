@@ -28,7 +28,8 @@
 
 #define __________________NUM_R1___________________   KC_F6,       KC_F7,       KC_F8,       KC_F9,       KC_F10
 #define __________________NUM_R2___________________   KC_6,       KC_7,       KC_8,       KC_9,       KC_0
-#define __________________NUM_R3___________________   FI_RPRN,    FI_RCBR,    FI_RBRC,    KC_F11,    KC_F12
+#define __________________NUM_R3___________________   FI_RPRN,    FI_RCBR,    FI_RBRC,    _______,    _______
+#define __________________NUM_R3_PLEX______________   FI_RPRN,    FI_RCBR,    FI_RBRC,    KC_F11,    KC_F12
 /* #define __________________NUM_R3___________________   _______,    RALT(KC_7), RALT(KC_8), RALT(KC_9), RALT(KC_0) */
 #define __________________NUM_R1_   __________________NUM_R1___________________, KC_F12
 #define __________________NUM_R2_   __________________NUM_R2___________________, FI_PLUS

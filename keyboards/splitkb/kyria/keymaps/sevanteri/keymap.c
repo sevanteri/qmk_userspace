@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         __NUM_L1_________________, /******/ /******/      /******/ /******/ __________________NUM_R1_,
         __NUM_L2_________________, /******/ /******/      /******/ /******/ __________________NUM_R2_,
         __NUM_L3_________________, _______, _______,      _______, _______, __________________NUM_R3_,
-                 _______, _______, ____NUM_THUMBLN_,      _______, _______, _______, _______, _______
+                 _______, _______, ____NUM_THUMBLN_,      _______, _______, _______, KC_RALT, _______
 
     ), // }}}
     [_STUF] = LAYOUT_wrapper( // {{{
@@ -76,6 +76,58 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* ), // }}} */
 };
 
+static bool rgb_changed = false;
+static uint8_t rgb_hue = 1;
+static uint8_t rgb_brightness = 1;
+static uint8_t rgb_sat = 255;
+
+void keyboard_post_init_user(void) {
+    /* debug_enable=true; */
+    rgb_hue = rgblight_get_hue();
+    rgb_brightness = rgblight_get_val();
+    rgb_sat = rgblight_get_sat();
+    /* trackball_set_hsv(rgb_hue, rgb_sat, rgb_brightness); */
+}
+
+report_mouse_t pointing_device_task_kb(report_mouse_t mouse_report) {
+    __attribute__((unused))
+    uint8_t mods = 0;
+    if (mouse_report.x || mouse_report.y) {
+        trigger_tapping();
+        mods = get_mods();
+    }
+    if (layer_state_is(_FUNC)) {
+        if (mouse_report.x || mouse_report.y) {
+            mouse_report.h = mouse_report.x/mouse_report.x;
+            mouse_report.v = -(mouse_report.y/abs(mouse_report.y));
+            mouse_report.x = 0;
+            mouse_report.y = 0;
+        }
+    } else if (layer_state_is(_STUF)) {
+
+        if (mods & MOD_MASK_SHIFT) {
+            int16_t new_sat = rgb_sat + mouse_report.x * 2;
+            if (new_sat > 100 && new_sat <= 255) {
+                rgb_sat = new_sat;
+                rgb_changed = true;
+                rgblight_sethsv_noeeprom(rgb_hue, rgb_sat, rgb_brightness);
+                /* trackball_set_hsv(rgb_hue, rgb_sat, rgb_brightness); */
+            }
+        } else {
+            rgb_hue += mouse_report.x % 256;
+            int16_t new_brightness = rgb_brightness + mouse_report.y * 2;
+            if (new_brightness < RGBLIGHT_LIMIT_VAL && new_brightness >= 0) {
+                rgb_brightness = new_brightness;
+            }
+            rgb_changed = true;
+            rgblight_sethsv_noeeprom(rgb_hue, rgb_sat, rgb_brightness);
+            mouse_report.x = mouse_report.y = 0;
+            /* trackball_set_hsv(rgb_hue, rgb_sat, rgb_brightness); */
+        }
+
+    }
+    return mouse_report;
+}
 
 #ifdef PIMORONI_TRACKBALL_ENABLE
 // {{{
@@ -89,17 +141,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #define SIGN(x) ((x > 0) - (x < 0))
 
-static bool rgb_changed = false;
-static uint8_t rgb_hue = 1;
-static uint8_t rgb_brightness = 1;
-static uint8_t rgb_sat = 255;
-
-void keyboard_post_init_user(void) {
-    rgb_hue = rgblight_get_hue();
-    rgb_brightness = rgblight_get_val();
-    rgb_sat = rgblight_get_sat();
-    trackball_set_hsv(rgb_hue, rgb_sat, rgb_brightness);
-}
 
 void eeconfig_init_user(void) {
   rgblight_sethsv(0, 255, 42);

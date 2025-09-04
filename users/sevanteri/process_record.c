@@ -138,29 +138,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
     }
 
-#ifdef POINTING_DEVICE_ENABLE
-    report_mouse_t report = pointing_device_get_report();
-    switch(keycode) {
-        case KC_BTN1:
-            if (pressed) report.buttons |= MOUSE_BTN1;
-            else report.buttons &= ~MOUSE_BTN1;
-            pointing_device_set_report(report);
-            pointing_device_send();
-            return false;
-        case KC_BTN2:
-            if (pressed) report.buttons |= MOUSE_BTN2;
-            else report.buttons &= ~MOUSE_BTN2;
-            pointing_device_set_report(report);
-            pointing_device_send();
-            return false;
-        case KC_BTN3:
-            if (pressed) report.buttons |= MOUSE_BTN3;
-            else report.buttons &= ~MOUSE_BTN3;
-            pointing_device_set_report(report);
-            pointing_device_send();
-            return false;
-    }
-#endif
+/* #ifdef POINTING_DEVICE_ENABLE */
+/*     report_mouse_t report = pointing_device_get_report(); */
+/*     switch(keycode) { */
+/*         case KC_BTN1: */
+/*             if (pressed) report.buttons |= MOUSE_BTN1; */
+/*             else report.buttons &= ~MOUSE_BTN1; */
+/*             pointing_device_set_report(report); */
+/*             pointing_device_send(); */
+/*             return false; */
+/*         case KC_BTN2: */
+/*             if (pressed) report.buttons |= MOUSE_BTN2; */
+/*             else report.buttons &= ~MOUSE_BTN2; */
+/*             pointing_device_set_report(report); */
+/*             pointing_device_send(); */
+/*             return false; */
+/*         case KC_BTN3: */
+/*             if (pressed) report.buttons |= MOUSE_BTN3; */
+/*             else report.buttons &= ~MOUSE_BTN3; */
+/*             pointing_device_set_report(report); */
+/*             pointing_device_send(); */
+/*             return false; */
+/*     } */
+/* #endif */
 
     if (!(
         process_case_modes(keycode, record) &&

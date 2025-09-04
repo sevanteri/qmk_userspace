@@ -8,7 +8,7 @@ SRC += sevanteri.c \
 
 INTROSPECTION_KEYMAP_C=combo_config.c
 
-#VPATH += users/sevanteri/features/
+VPATH += users/sevanteri/features/
 
 
 SPACE_CADET_ENABLE = no
