@@ -45,7 +45,7 @@ enum my_layers {
 #define  MY_THL2  LALT_T(KC_SPC)
 #define  MY_THL3  LGUI_T(KC_ESC)
 /* #define  MY_THL3  KC_LGUI */
-#define  MY_THL4  KC_BTN2
+#define  MY_THL4  MS_BTN2
 
 #define  MY_THUL1  A(KC_BSPC)
 #define  MY_THUL2  MO(_FUNC)
@@ -60,7 +60,7 @@ enum my_layers {
 //#define  MY_THUR1  KC_MEH
 
 // basic alpha keys {{{
-#define  MY_TAB KC_BTN1
+#define  MY_TAB MS_BTN1
 #define  MY_Q  KC_Q
 #define  MY_W  KC_W
 #define  MY_E  KC_E
@@ -100,6 +100,19 @@ enum my_layers {
 #define  MY_MINS  FI_MINS
 #define  MY_RSFT  FI_UNDS
 //}}}
+
+// PLEX home row mods
+#if defined(KEYBOARD_gboards_gergoplex)
+#undef MY_A
+#undef MY_S
+#define MY_A LCTL_T(KC_A)
+#define MY_S LSFT_T(KC_S)
+
+#undef MY_Z
+#undef MY_MINS
+#define MY_Z LALT_T(KC_Z)
+#define MY_MINS LALT_T(FI_MINS)
+#endif
 
 
 #include "action_tapping.h"

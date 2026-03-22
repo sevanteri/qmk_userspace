@@ -54,3 +54,7 @@
 /* #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP25 */
 /* #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U */
 
+#if defined(KEYBOARD_gboards_gergoplex)
+#define FLOW_TAP_TERM 100
+#endif
+
